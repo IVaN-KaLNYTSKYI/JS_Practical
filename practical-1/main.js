@@ -81,9 +81,9 @@ document.write(concatenation);*/
 let str = "20";
 let a = 5;
 document.write(str + a + "<br/>");///////зєднює ці дві змінні =205
-document.write(str - a + "<br/>");//////NaN помилка від строки не можна - число
-document.write(str * "2" + "<br/>");NaN не можем строку на строку помножити
-document.write(str / 2 + "<br/>")NaN не можем строку на строку поділити;*/
+document.write(str - a + "<br/>");////// 15 бо str перетворюється на number
+document.write(str * "2" + "<br/>")/////40 бо str i a перетворюється на number
+document.write(str / 2 + "<br/>")//////10 бо str перетворюється на number
 /*TASK-11*/
 /*
 let a=parseInt("3.14")
