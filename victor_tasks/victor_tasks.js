@@ -1,32 +1,24 @@
 /*                                                        завдання від Віті                                                          */
 
-/*Вирівняти багаторівневий масив в однорівневий
+/*
+Вирівняти багаторівневий масив в однорівневий
     [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
 flat використовувати заборонено.
 let arry=[1,3, ['Hello','Wordd', [9,6,1]], ['oops'], 9];
-let arryFinish=[];
-let provirka="provirka arry";
-function vr (arr){
-    for(let i of arr){
-        if(i.length>0){
-            for (let j of i){
-                if(typeof j!==typeof provirka){
-                    for (let k of j){
-                        arryFinish.push(k);
-                    }
-                }
-                else {
-                    arryFinish.push(j);
-                }
-            }
+let a=[];
+function func(arr) {
+    for (let elem of arr) {
+        if ( typeof elem==='object') {
+            func(elem);
         }
-        else {
-            arryFinish.push(i);
-        }
+        else a.push(elem)
     }
 }
-vr(arry)
-console.log(arryFinish)*/     //доробити (треба через рекурсію)
+
+func([1,3, ['Hello','Wordd', [9,6,1]], ['oops'], 9]);
+console.log(a)
+*/
+
 
 
 /*Точная степень двойки
@@ -72,30 +64,3 @@ let numbers=(namber) => {
 }
 console.log(numbers(19532));
 */
-
-/*
-/!*
-function func(arr) {
- for (let elem of arr) {
-  if (typeof elem == 'object') {
-   // элемент - массив
-  } else {
-   // элемент - примитив
-   console.log(elem);
-  }
- }
-}
-
-func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);*!/
-
-function func(arr) {
- for (let elem of arr) {
-  if (typeof elem == 'object') {
-   func(elem);
-  } else {
-   console.log(elem);
-  }
- }
-}
-
-func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);*/     //Рекурсия
