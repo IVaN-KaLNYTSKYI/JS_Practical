@@ -171,3 +171,33 @@ if (str==="green"&&active===true){
 }else {
     console.log("делай что хочешь")
 }*/
+
+/*let arry=[2,6,-3,3,-6];
+let result=0;
+let resultTwo=0;
+let res=[];
+for (const item of arry){
+    if(item>0){
+        result+=item;
+    }
+    if(item<0){
+        resultTwo+=item;
+    }
+}
+res.push(result);
+res.push(resultTwo);
+console.log(res);*/
+
+/*
+const numbers = [1, 2,2,2,2, 3, 4, 5,6, 4, 1, 3];
+const obj = {}
+for (let item of numbers) {
+    obj[item] ? obj[item]++ : obj[item] = 1
+}
+for (let key in obj) {
+    if (obj[key] % 2) {
+        console.log(key);
+    }
+}
+console.log(obj);
+console.log(obj[key]);*/
