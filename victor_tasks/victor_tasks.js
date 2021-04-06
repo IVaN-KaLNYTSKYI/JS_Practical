@@ -1,26 +1,25 @@
 /*                                                        завдання від Віті                                                          */
 
 /*
-Вирівняти багаторівневий масив в однорівневий
+/!*Вирівняти багаторівневий масив в однорівневий
     [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
-flat використовувати заборонено.
-let arry=[1,3, ['Hello','Wordd', [9,6,1]], ['oops'], 9];
+flat використовувати заборонено.*!/
 let a=[];
 function func(arr) {
-    for (let elem of arr) {
-        if ( typeof elem==='object') {
-            func(elem);
+     /!*  let a=[];*!/
+        for (let elem of arr) {
+            if (Array.isArray(elem)) {
+                func(elem);
+            } else {
+                a.push(elem)
+            }
         }
-        else a.push(elem)
-    }
+    return a
 }
-
-func([1,3, ['Hello','Wordd', [9,6,1]], ['oops'], 9]);
-console.log(a)
+console.log(func([1, 3, [/!*'Hello', 'Wordd',*!/ [9, 6, 1]] /!*['oops']*!/, 9]));
 */
 
-
-
+/*console.log(a)*/
 /*Точная степень двойки
 Дано натуральное число N.
     Выведите слово YES, если число N является точной степенью двойки, или слово NO в противном случае.
@@ -63,4 +62,46 @@ let numbers=(namber) => {
  return arrOne.join('+');
 }
 console.log(numbers(19532));
+*/
+
+/*
+/!*
+/!*Палиндром
+Дано слово, состоящее только из строчных латинских букв. Проверьте, является ли это слово палиндромом. Выведите YES или NO.
+    При решении этой задачи*!/ нельзя пользоваться циклами, в решениях на питоне нельзя использовать срезы с шагом, отличным от 1.*!/
+/!*
+let a="okoe";
+console.log(a)
+let a1=a.split('');
+console.log(a1);
+let b=a1.reverse();    // це не до цього ))))))!!!! просто перевіряв
+let b1=b.join('');
+console.log(b1);*!/
+
+function poli(a){
+    return (a ===a.split('').reverse().join('') ? 'YES' : 'NO')
+}
+console.log(poli("PELE"))*/
+
+
+/*                                                       mentor                                 * /
+/*
+
+/!*!/!*написати прогу яка вибирає зі строки числа і виводить їх
+так як вони написані
+наприклад:
+    const st = 'as 23 fdf25dg544 34s5 5'
+23, 25,544, 34, 5,5              #вивело в консолі*!/!*!/
+
+let st='as 23 fDf25dg544 434 545 34s5 5';
+let st1=st.toLowerCase();
+let str1=st1.replace(/[a-z]/g,' ')
+let a=str1.split(" ");
+console.log(a);
+for (let i=0;i<a.length;i++){
+    if(a[i] !==''){
+        console.log(parseInt(a[i]))
+    }
+}
+
 */
