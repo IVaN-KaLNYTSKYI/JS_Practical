@@ -1,4 +1,4 @@
-/*                                                        завдання від Віті                                                          */
+/*                                                        завдання від Віті                                                           */
 
 /*
 /!*Вирівняти багаторівневий масив в однорівневий
@@ -19,7 +19,6 @@ function func(arr) {
 console.log(func([1, 3, [/!*'Hello', 'Wordd',*!/ [9, 6, 1]] /!*['oops']*!/, 9]));
 */
 
-/*console.log(a)*/
 /*Точная степень двойки
 Дано натуральное число N.
     Выведите слово YES, если число N является точной степенью двойки, или слово NO в противном случае.
@@ -83,6 +82,29 @@ function poli(a){
 }
 console.log(poli("PELE"))*/
 
+/*
+/!*
+Знайти анаграму.
+    Перевірити чи слово має в собі такі самі літери як і поеперднє слово.
+
+    ANAGRAM | MGANRAA -> true
+EXIT | AXET -> false
+GOOD | DOGO -> true
+*!/
+
+let str="okoo";
+let str1="kooo"
+
+let a=str.split('')
+let q=str1.split('');
+
+let strSort=a.sort();
+let str1Sort=q.sort();
+
+let strNorm=strSort.join("");
+let strNormOne=str1Sort.join("")
+
+console.log(strNorm===strNormOne);*/
 
 /*                                                       mentor                                 * /
 /*
