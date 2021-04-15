@@ -106,6 +106,42 @@ let strNormOne=str1Sort.join("")
 
 console.log(strNorm===strNormOne);*/
 
+/*
+/!*
+Знайти набільший елемент в масиві за допомогою reduce
+    [1,6,9,0,17,88,4,7] -> 88*!/
+
+let a=[1000,6,9,0,17,88,94,4,744];
+
+let maxNamber=a.reduce((ac ,namber)=>{
+    if(ac<namber){
+        ac=namber;
+    }
+    return ac
+},0)
+console.log(maxNamber)
+*/
+
+/*
+/!*
+Количество единиц
+Дана последовательность натуральных чисел  в строке, завершающаяся двумя числами 0 подряд.
+Определите, сколько раз в этой последовательности встречается число 1. Числа, идущие после двух нулей, необходимо игнорировать.
+
+2176491947586100 -> 3*!/
+function count(namber){
+    let namberOne=String(namber).split("00")[0].split("").reduce((ac,namber)=>{
+        if (namber==="1") {
+            ++ac
+        }
+        return ac;
+    },0)
+    return namberOne
+}
+console.log(count(2176419194758610021))*/
+
+
+
 /*                                                       mentor                                 * /
 /*
 
@@ -127,3 +163,62 @@ for (let i=0;i<a.length;i++){
 }
 
 */
+
+/*
+
+/!*
+/ Найти пропущеную букву в массиве которые лежат
+в алфавитном порядке ["a", "b", "c", "d", "f"] -> 'e'
+*!/
+
+let alphabet = [
+    "a","b","c","d","e","f","g",
+    "h","i","j","k","l","m","n",
+    "o","p","q","r","s","t","u",
+    "v","w","x","y","z"
+];
+let ret=["a", "b", "c", "d", "f"]
+
+let b=[];
+let se=ret.forEach((nam,index,l)=>{
+   let a= nam.charCodeAt();
+   b.push(a);
+})
+console.log(b);
+console.log(String.fromCharCode(101));
+*/
+
+/*
+const users = [
+    {name: 'Max', age: 13,citi:"lviv"},
+    {name: 'Kira', age: 12,citi:"qqq"},
+    {name: 'Oleh', age: 16,citi:"www"},
+    {name: 'Karina', age: 16,citi:"eee"},
+    {name: 'Kokos', age: 13,citi:"rrr"},
+    {name: 'Max', age: 16,citi:"ttt"},
+]
+
+function filtr(mac,o){
+    const filt = mac.filter((v)=>{
+        let s=Object.keys(o);
+        if(s.length<=1){
+            Object.values(v).forEach((q)=>{
+                Object.values(o).forEach((i)=>{
+                    if(q===i){
+                        console.log(v)
+                    }
+                })
+            })
+        }else if(s.length>1){
+           if(Object.values(v).join("").includes(Object.values(o).join(""))){
+               console.log(v)
+           }
+        }
+    })
+   return filt
+}
+console.log(filtr(users,{name:"Max",age:16}))
+
+
+const filter = (arr, obj) => arr.filter(value => Object.keys(obj).every(e => obj[e] === value[e]));
+console.log(filter(users, {age: 16}));*/
