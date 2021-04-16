@@ -222,3 +222,11 @@ console.log(filtr(users,{name:"Max",age:16}))
 
 const filter = (arr, obj) => arr.filter(value => Object.keys(obj).every(e => obj[e] === value[e]));
 console.log(filter(users, {age: 16}));*/
+
+
+
+
+function cal (a,b,dani){
+    console.log(dani(a, b));
+}
+cal(2,3,(a,b)=>a+b)
