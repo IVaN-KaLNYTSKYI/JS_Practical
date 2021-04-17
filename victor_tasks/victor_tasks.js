@@ -225,8 +225,128 @@ console.log(filter(users, {age: 16}));*/
 
 
 
-
-function cal (a,b,dani){
+/*
+/!*
+/!*function cal (a,b,dani){
     console.log(dani(a, b));
 }
-cal(2,3,(a,b)=>a+b)
+cal(2,3,(a,b)=>a+b)*!/
+
+/!*
+
+function sum(a,b){
+    console.log(a)
+    console.log(b)
+    setTimeout(()=>{
+        if(a>b){
+            console.log(a-b);
+        }else console.log(b-a);
+    },1000)
+}
+sum(2,7)*!/
+
+/!*
+function orderTour(taskWhenReady) {
+  console.log('Дякую, що звернулися до нас');
+  console.log('Tour in progres ......');
+  setTimeout(() => {
+    console.log('DONE');
+    taskWhenReady();
+  }, 2000);
+}
+
+
+orderTour(() => {
+  console.log('УРА. Лутимо на моря');
+});*!/
+
+
+function orderTour(money, taskWhenReady) {
+  console.log('Дякую, що звернулися до нас');
+  console.log('Tour in progres ......');
+  setTimeout(() => {
+    console.log('DONE');
+    if (money < 500) {
+      taskWhenReady('вам треба більше грошей', null);
+      return;
+    }
+    taskWhenReady(null, 'Єгипет');
+  }, 2000);
+}
+
+
+function prepareToTour(cb) {
+  setTimeout(() => {
+    console.log('Я забраввся!')
+    cb(null, 'Полетіли НАРЕШТІ !!!!');
+  }, 1000)
+}
+
+function doPhoto(cb) {
+  cb(null, 'ЩОЛК ЩОЛК')
+}
+
+
+orderTour(400, (err, tour) => {
+  if (err) {
+    console.log('Мала, треба їсти макарони');
+    console.log('В агенстві сказали що', err);
+    return;
+  }
+  console.log(`УРА. Лутимо в ${tour}`);
+  prepareToTour((err, data) => {
+    if (err) {
+      console.log('Бліне. Нема купальника (((');
+      return;
+    }
+    console.log(data);
+    doPhoto((err, data) => {
+      if (err) {
+        return
+      }
+      console.log(data);
+    })
+  })*!/
+});*/
+
+/*
+const del = (e,a,f)=> {
+    e.remove();
+    f.remove();
+    localStorage.removeItem(a);
+};
+const setData= ()=>{
+    let form = document.forms.form;
+    let elem1 = form.elements.FIO.value;
+    let elem2 = form.elements.number.value;
+    let elem3 = form.elements.EMail.value;
+    let elem4 = form.elements.galera.value;
+    let elem5 = form.elements.part.value;
+    let elem6 = form.elements.birth.value;
+    const data = {
+        FIO: elem1,
+        number: elem2,
+        EMail: elem3,
+        galera: elem4,
+        part: elem5,
+        birth: elem6
+    };
+    localStorage.setItem(`${data.FIO}`, JSON.stringify(data));
+    let newDiv=document.createElement('div');
+    newDiv.innerHTML=(`
+  <p>Name: ${ data.FIO} </p>
+  <p>Number: ${ data.number} </p>
+  <p>Mail: ${ data.EMail} </p>
+  <p>galera: ${ data.galera} </p>
+  <p>Part: ${ data.part} </p>
+  <p>BirthDay: ${ data.birth} </p>
+  `);
+    let btn = document.createElement('button');
+    btn.addEventListener('click', function () {
+        del(newDiv,elem1,btn)
+    });
+    btn.label='del';
+    document.body.appendChild(newDiv);
+    document.body.appendChild(btn);
+    newDiv.classList.add('border');
+};*/
