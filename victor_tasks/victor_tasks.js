@@ -364,6 +364,7 @@ e (затримка 0.1)
 l (затримка 0.3)
 l (затримка 0.7)
 о (затримка 1)*/
+
 let a = "hello"
 const arr = a.split("");
 console.log(arr)
