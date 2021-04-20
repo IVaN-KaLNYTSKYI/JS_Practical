@@ -140,10 +140,10 @@ function count(namber){
 }
 console.log(count(2176419194758610021))*/
 
-/*/!*
+/*
 Отримати масив лише унікальних значень за допомогою reduce
     [1, 9, 0, 1, 5, 9, 1, 6] -> [1, 9, 0, 5, 6]
-*!/
+*/
 
 const arr=[1,9,0,1,5,9,1,6,6,6,2];
 let sortq=arr.reduce((ecc,a)=>{
@@ -153,7 +153,7 @@ let sortq=arr.reduce((ecc,a)=>{
     return ecc;
 },[])
 
-console.log(sortq);*/
+console.log(sortq);
 
 /*
 /!*Реалізувати друкарську машинку.
