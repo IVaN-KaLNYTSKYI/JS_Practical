@@ -372,7 +372,7 @@ console.log(arr)
 function liter(arr) {
     for (let i of arr) {
         setTimeout(() => {
-            document.write(`${i}<br>`)
+            document.write(`${i} <br>`)
         }, Math.floor(Math.random() * 1000)+100)
     }
 }
