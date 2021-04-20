@@ -140,6 +140,53 @@ function count(namber){
 }
 console.log(count(2176419194758610021))*/
 
+/*/!*
+Отримати масив лише унікальних значень за допомогою reduce
+    [1, 9, 0, 1, 5, 9, 1, 6] -> [1, 9, 0, 5, 6]
+*!/
+
+const arr=[1,9,0,1,5,9,1,6,6,6,2];
+let sortq=arr.reduce((ecc,a)=>{
+    if(!ecc.includes(a)) {
+        ecc.push(a)
+    }
+    return ecc;
+},[])
+
+console.log(sortq);*/
+
+/*
+/!*Реалізувати друкарську машинку.
+    У вас є текст "Hello World".
+    Ваша функція має друкувати цей текст по 1 симоволу в браузері.
+    КОЖНА нова буква має бути з РАНДОМНОЮ заутримкою від 0.1 до 1 секунди.
+    Цим самим ви маєте симулювати написання даного тексту юзером.
+    Приклад: "Hello"
+Затримки:
+    H (затримка 0.6)
+e (затримка 0.1)
+l (затримка 0.3)
+l (затримка 0.7)
+о (затримка 1)*!/
+
+let a = "hello"
+const arr = a.split("");
+console.log(arr)
+
+function liter(arr,cb) {
+    for (let i of arr) {
+        cb(i)
+    }
+}
+liter(arr,(a)=>{
+    setTimeout(() => {
+        document.write(`${a} <br>`)
+    }, Math.floor(Math.random() * 1000)+100)
+})
+*/
+
+
+
 
 /*                                                       mentor                                 * /
 /*
@@ -349,31 +396,165 @@ const setData= ()=>{
     newDiv.classList.add('border');
 };*/
 
+/*
 
+задание на асинхронность... подобно тому же заданию что и было на домашку....
+задание называется "остаться в живых"
 
-
-/*Реалізувати друкарську машинку.
-    У вас є текст "Hello World".
-    Ваша функція має друкувати цей текст по 1 симоволу в браузері.
-    КОЖНА нова буква має бути з РАНДОМНОЮ заутримкою від 0.1 до 1 секунди.
-    Цим самим ви маєте симулювати написання даного тексту юзером.
-    Приклад: "Hello"
-Затримки:
-    H (затримка 0.6)
-e (затримка 0.1)
-l (затримка 0.3)
-l (затримка 0.7)
-о (затримка 1)*/
-
-let a = "hello"
-const arr = a.split("");
-console.log(arr)
-
-function liter(arr) {
-    for (let i of arr) {
-        setTimeout(() => {
-            document.write(`${i} <br>`)
-        }, Math.floor(Math.random() * 1000)+100)
-    }
+на начало дня у человека есть определенное количество энергии, пускай 1000
+- человек проснулся потратил определенное количество энергии
+- поел получил дополнительную энергию
+- пошел на работу потратил енергию
+и так придумать пунктов 10
+на каждом шаге если энергия дошла до 0 то вывести сообщение к примеру "Вы умерли по пути на работу"
+*
+ */
+function goUp(energy, cb) {
+    console.log('Я проснувся')
+    setTimeout(() => {
+        if (energy>0) {
+            cb(null,energy);
+        } else {
+            cb('Вы умерли навіть не вставши');
+        }
+    }, 600)
 }
-liter(arr)
+function bath(energy, cb) {
+    console.log("Cходив в душ");
+    setTimeout(() => {
+        if (energy>0) {
+            cb(null,energy+(Math.floor(Math.random() * 100)+10));
+        } else {
+            cb(`Вы умерли в душi anergi-${energy=0}`)
+        }
+    }, 1000)
+}
+
+function eats(energy,cb){
+    console.log("Треба поїсти");
+    setTimeout(()=>{
+        if(energy>0){
+            cb(null,energy+Math.floor(Math.random() * 100)+10)
+        }else {
+            cb("Вы умерли коли хавали")
+        }
+    },1500)
+}
+function wait(energy,cb){
+    console.log("Чекаю на ТРОЙКУ");
+    setTimeout(()=>{
+        if (energy>0){
+            console.log("Тройки не має замахався чекати");
+            cb(null,energy-(Math.floor(Math.random() * 200)+100));
+        }else {
+            cb("Вы умерли коли чекали на ТРОЙКУ");
+        }
+    },1000)
+}
+function work(energy,cb){
+    console.log("я вже на роботі");
+    setTimeout(()=>{
+        if (energy>0){
+            cb(null,energy-(Math.floor(Math.random() * 400)+250));
+        }else {
+            cb("на роботі завал помер");
+        }
+    },3000)
+}
+
+function sport(energy,cb){
+    console.log("Спорт сила алкоголь могила!!!!");
+    setTimeout(()=>{
+        if(energy>0){
+            cb(null,energy+(Math.floor(Math.random() * 100)+50));
+        }else {
+            cb("помер в залі");
+        }
+    },500)
+}
+function workTwo(energy,cb){
+    console.log("я вже на другій роботі");
+    setTimeout(()=>{
+        if (energy>0){
+            cb(null,energy-(Math.floor(Math.random() * 450)+200));
+        }else {
+            cb("на другій роботі завал помер");
+        }
+    },3000)
+}
+
+function home (energy,cb){
+    console.log("я вже в дома");
+    setTimeout(()=>{
+        if (energy>500){
+            cb(null,`Все ок в цьому дні я вижив енергія ${energy}`);
+        }else {
+            cb(`Я помер з ${energy}`);
+        }
+    },3000)
+}
+
+goUp(1000,(err,namber)=>{
+    if(!err) {
+        console.log(namber);
+        bath(namber, (err, namber)=>{
+            if(!err){
+                console.log(namber);
+                eats(namber,(err,namber)=>{
+                    if(!err){
+                        console.log(namber);
+                        wait(namber,(err,namber)=>{
+                            if(!err){
+                                console.log(namber);
+                                work(namber,(err,namber)=>{
+                                    if(!err){
+                                        console.log(namber)
+                                        sport(namber,(err,namber)=>{
+                                            if(!err){
+                                                console.log(namber);
+                                                workTwo(namber,(err,namber)=>{
+                                                    if(!err){
+                                                        console.log(namber);
+                                                        home(namber,(err,namber)=>{
+                                                            if(!err){
+                                                                console.log(namber);
+                                                            }
+                                                            else {
+                                                                console.warn(err)
+                                                            }
+                                                        })
+                                                    }
+                                                    else {
+                                                        console.warn(err);
+                                                    }
+                                                })
+                                            }
+                                            else {
+                                                console.warn(err);
+                                            }
+                                        })
+                                    }
+                                    else {
+                                        console.warn(err)
+                                    }
+                                })
+                            }
+                            else {
+                                console.warn(err);
+                            }
+                        })
+                    }
+                    else {
+                        console.warn(err);
+                    }
+                })
+            }
+            else {
+                console.warn(err);
+            }
+        })
+    }
+    else {
+        console.warn(err);
+    }
+})
