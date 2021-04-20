@@ -476,7 +476,7 @@ function workTwo(energy,cb){
     console.log("я вже на другій роботі");
     setTimeout(()=>{
         if (energy>0){
-            cb(null,energy-(Math.floor(Math.random() * 450)+200));
+            cb(null,energy-(Math.floor(Math.random() * 600)+300));
         }else {
             cb("на другій роботі завал помер");
         }
@@ -486,7 +486,7 @@ function workTwo(energy,cb){
 function home (energy,cb){
     console.log("я вже в дома");
     setTimeout(()=>{
-        if (energy>500){
+        if (energy>0){
             cb(null,`Все ок в цьому дні я вижив енергія ${energy}`);
         }else {
             cb(`Я помер з ${energy}`);
