@@ -397,6 +397,7 @@ const setData= ()=>{
 };*/
 
 /*
+/!*
 
 задание на асинхронность... подобно тому же заданию что и было на домашку....
 задание называется "остаться в живых"
@@ -408,7 +409,7 @@ const setData= ()=>{
 и так придумать пунктов 10
 на каждом шаге если энергия дошла до 0 то вывести сообщение к примеру "Вы умерли по пути на работу"
 *
- */
+ *!/
 function goUp(energy, cb) {
     console.log('Я проснувся')
     setTimeout(() => {
@@ -558,3 +559,21 @@ goUp(1000,(err,namber)=>{
         console.warn(err);
     }
 })
+*/
+
+function highAndLow(numbers){
+    let namber=numbers.split(" ");
+    let max=0;
+    let min=namber[0];
+    for(let i of namber){
+        if(i>max){
+            max=i;
+        }
+        if (i<min){
+            min=i;
+        }
+    }
+    return `"${max} ${min}"`;
+}
+
+console.log(highAndLow("4 5 29 54 4 0 -214 200 -64 1 -3 60 -6"));
