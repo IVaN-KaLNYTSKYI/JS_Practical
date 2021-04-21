@@ -140,10 +140,10 @@ function count(namber){
 }
 console.log(count(2176419194758610021))*/
 
-/*
+/*/!*
 Отримати масив лише унікальних значень за допомогою reduce
     [1, 9, 0, 1, 5, 9, 1, 6] -> [1, 9, 0, 5, 6]
-*/
+*!/
 
 const arr=[1,9,0,1,5,9,1,6,6,6,2];
 let sortq=arr.reduce((ecc,a)=>{
@@ -153,7 +153,7 @@ let sortq=arr.reduce((ecc,a)=>{
     return ecc;
 },[])
 
-console.log(sortq);
+console.log(sortq);*/
 
 /*
 /!*Реалізувати друкарську машинку.
@@ -561,19 +561,35 @@ goUp(1000,(err,namber)=>{
 })
 */
 
+/*
 function highAndLow(numbers){
     let namber=numbers.split(" ");
+    console.log(namber)
     let max=0;
     let min=namber[0];
     for(let i of namber){
-        if(i>max){
+        if(max<+i){
             max=i;
         }
-        if (i<min){
+        if (+i<min){
             min=i;
         }
     }
-    return `"${max} ${min}"`;
+    console.log( `"${max} ${min}"`);
 }
+highAndLow("4 5000 29 54 4 60 -214 700");
+highAndLow("4 5 2900 54 4 0 2000");*/
 
-console.log(highAndLow("4 5 29 54 4 0 -214 200 -64 1 -3 60 -6"));
+/*
+/!*Простий, отримавши рядок слів, повертає довжину найкоротшого слова.*!/
+
+function findShort(s){
+    let a=s.split(" ");
+    let min=a[0].length;
+    for(let i of a){
+        if(i.length<min)
+            min=i.length;
+    }
+    console.log( `"${min}"`);
+}
+findShort("lox ivan ba");*/
