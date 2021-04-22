@@ -155,7 +155,8 @@ let sortq=arr.reduce((ecc,a)=>{
 
 console.log(sortq);*/
 
-/*Реалізувати друкарську машинку.
+/*
+/!*Реалізувати друкарську машинку.
     У вас є текст "Hello World".
     Ваша функція має друкувати цей текст по 1 симоволу в браузері.
     КОЖНА нова буква має бути з РАНДОМНОЮ заутримкою від 0.1 до 1 секунди.
@@ -166,44 +167,29 @@ console.log(sortq);*/
 e (затримка 0.1)
 l (затримка 0.3)
 l (затримка 0.7)
-о (затримка 1)*/
+о (затримка 1)*!/
 
-/*function ret (str){
-    return new Promise(() => {
-            str.split("").forEach((value)=>{
+function ret (str){
+    return new Promise((resolve) => {
                 setTimeout(()=>{
-                console.log(value)
+                resolve(str);
                 },Math.floor(Math.random() * 1000)+100)
             })
-    })
 }
 
-async function onr(){
+async function onr(str){
    try {
-       console.log(await ret("hello"))
+       for (let i of str){
+           console.log(await ret(i))
+       }
    }
    catch (e) {
       console.log(e)
    }
 }
-onr();*/
-
-/*
-let a = "hello"
-const arr = a.split("");
-console.log(arr)
-
-function liter(arr,cb) {
-    for (let i of arr) {
-        cb(i)
-    }
-}
-liter(arr,(a)=>{
-    setTimeout(() => {
-        document.write(`${a} <br>`)
-    }, Math.floor(Math.random() * 1000)+100)
-})
+onr("hello");
 */
+
 
 
 
