@@ -12,22 +12,23 @@ const user= [
     {id: 11, name: 'max', age: 31, isMarried: true, address: {city: 'Rivne', street: 'Ivana Franka', number: 121}}
 ];
 
-let form = document.forms.form;
-const divUser=document.createElement("div")
-let cop=(arr)=>{
+
+const divUser=document.createElement("div");
+document.body.append(divUser)
+let cop=(arr,main)=>{
+    main.innerHTML=""
     arr.forEach((item)=>{
         let div=document.createElement("div");
         div.innerText=JSON.stringify(item);
-       document.body.append(div)
+        main.appendChild(div)
     })
 }
+/*cop(user,divUser);*/
+let form = document.forms.form;
 const filter=()=>{
-let a=user;
+    let a=user;
 if(form.one.checked){a=a.filter((value)=>!value.isMarried)}
-
 if(form.two.checked){a=a.filter((value)=>value.age>=29)}
-
 if(form.three.checked){a=a.filter((value)=>value.address.city==="Kyiv")}
-
-divUser.appendChild(cop(a))
+cop(a,divUser)
 }
