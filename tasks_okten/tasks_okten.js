@@ -194,9 +194,10 @@ onr("hello");
 
 
 
-
-/*                                                       mentor                                 * /
 /*
+вава
+/!*                                                       mentor                                 * /
+/!*
 
 /!*!/!*написати прогу яка вибирає зі строки числа і виводить їх
 так як вони написані
@@ -215,9 +216,9 @@ for (let i=0;i<a.length;i++){
     }
 }
 
-*/
+*!/
 
-/*
+/!*
 
 /!*
 / Найти пропущеную букву в массиве которые лежат
@@ -239,9 +240,9 @@ let se=ret.forEach((nam,index,l)=>{
 })
 console.log(b);
 console.log(String.fromCharCode(101));
-*/
+*!/
 
-/*
+/!*
 const users = [
     {name: 'Max', age: 13,citi:"lviv"},
     {name: 'Kira', age: 12,citi:"qqq"},
@@ -274,10 +275,10 @@ console.log(filtr(users,{name:"Max",age:16}))
 
 
 const filter = (arr, obj) => arr.filter(value => Object.keys(obj).every(e => obj[e] === value[e]));
-console.log(filter(users, {age: 16}));*/
+console.log(filter(users, {age: 16}));*!/
 
 
-/*
+/!*
 /!*
 /!*function cal (a,b,dani){
     console.log(dani(a, b));
@@ -359,10 +360,9 @@ orderTour(400, (err, tour) => {
       console.log(data);
     })
   })*!/
-});*/
+});*!/
 
-/*
-const del = (e,a,f)=> {
+/!*const del = (e,a,f)=> {
     e.remove();
     f.remove();
     localStorage.removeItem(a);
@@ -401,9 +401,9 @@ const setData= ()=>{
     document.body.appendChild(newDiv);
     document.body.appendChild(btn);
     newDiv.classList.add('border');
-};*/
+};*!/
 
-/*
+/!*
 /!*
 
 задание на асинхронность... подобно тому же заданию что и было на домашку....
@@ -566,9 +566,9 @@ goUp(1000,(err,namber)=>{
         console.warn(err);
     }
 })
-*/
+*!/
 
-/*
+/!*
 function highAndLow(numbers){
     let namber=numbers.split(" ");
     console.log(namber)
@@ -585,9 +585,9 @@ function highAndLow(numbers){
     console.log( `"${max} ${min}"`);
 }
 highAndLow("4 5000 29 54 4 60 -214 700");
-highAndLow("4 5 2900 54 4 0 2000");*/
+highAndLow("4 5 2900 54 4 0 2000");*!/
 
-/*
+/!*
 /!*Простий, отримавши рядок слів, повертає довжину найкоротшого слова.*!/
 
 function findShort(s){
@@ -599,4 +599,29 @@ function findShort(s){
     }
     console.log( `"${min}"`);
 }
-findShort("lox ivan ba");*/
+findShort("lox ivan ba");*!/
+*/
+
+let form = document.forms.form;
+const setData=(ev)=>{
+    let elem1 = form.elements.FIO.value;
+    const data = {
+        FIO: elem1
+    };
+    localStorage.setItem(`${elem1}`, JSON.stringify(data));
+    let newDiv=document.createElement('div');
+    const usr=localStorage.getItem(elem1)
+    newDiv.innerHTML=(`
+  <p>Name: ${data.FIO} </p>
+  `);
+    let btn = document.createElement('button');
+    btn.addEventListener('click', function () {
+        localStorage.removeItem(elem1);
+        newDiv.remove();
+        btn.remove();
+
+    });
+    document.body.appendChild(newDiv);
+    document.body.appendChild(btn);
+
+}
