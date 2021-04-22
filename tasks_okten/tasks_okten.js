@@ -610,7 +610,6 @@ const setData=(ev)=>{
     };
     localStorage.setItem(`${elem1}`, JSON.stringify(data));
     let newDiv=document.createElement('div');
-    const usr=localStorage.getItem(elem1)
     newDiv.innerHTML=(`
   <p>Name: ${data.FIO} </p>
   `);
@@ -623,5 +622,32 @@ const setData=(ev)=>{
     });
     document.body.appendChild(newDiv);
     document.body.appendChild(btn);
+    }
 
+/*
+let form = document.forms.form;
+let data = [];
+const setData=(ev)=> {
+    let elem1 = form.elements.FIO.value;
+    data.push(elem1)
+    localStorage.setItem(`elem`, JSON.stringify(data));
+    let newDiv = document.createElement('div');
+    newDiv.innerHTML = (`
+  <p>Name: ${elem1} </p>
+  `);
+    let btn = document.createElement('button');
+    btn.addEventListener('click', function () {
+        newDiv.remove();
+        btn.remove();
+
+    });
+    document.body.appendChild(newDiv);
+    document.body.appendChild(btn);
 }
+let a=JSON.parse(localStorage.getItem("elem"));
+console.log(a)
+for(let i of a){
+    let v=document.createElement("div");
+    document.body.append(v);
+    v.innerText=i;
+}*/
