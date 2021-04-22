@@ -362,46 +362,7 @@ orderTour(400, (err, tour) => {
   })*!/
 });*!/
 
-/!*const del = (e,a,f)=> {
-    e.remove();
-    f.remove();
-    localStorage.removeItem(a);
-};
-const setData= ()=>{
-    let form = document.forms.form;
-    let elem1 = form.elements.FIO.value;
-    let elem2 = form.elements.number.value;
-    let elem3 = form.elements.EMail.value;
-    let elem4 = form.elements.galera.value;
-    let elem5 = form.elements.part.value;
-    let elem6 = form.elements.birth.value;
-    const data = {
-        FIO: elem1,
-        number: elem2,
-        EMail: elem3,
-        galera: elem4,
-        part: elem5,
-        birth: elem6
-    };
-    localStorage.setItem(`${data.FIO}`, JSON.stringify(data));
-    let newDiv=document.createElement('div');
-    newDiv.innerHTML=(`
-  <p>Name: ${ data.FIO} </p>
-  <p>Number: ${ data.number} </p>
-  <p>Mail: ${ data.EMail} </p>
-  <p>galera: ${ data.galera} </p>
-  <p>Part: ${ data.part} </p>
-  <p>BirthDay: ${ data.birth} </p>
-  `);
-    let btn = document.createElement('button');
-    btn.addEventListener('click', function () {
-        del(newDiv,elem1,btn)
-    });
-    btn.label='del';
-    document.body.appendChild(newDiv);
-    document.body.appendChild(btn);
-    newDiv.classList.add('border');
-};*!/
+
 
 /!*
 /!*
@@ -602,7 +563,7 @@ function findShort(s){
 findShort("lox ivan ba");*!/
 */
 
-let form = document.forms.form;
+/*let form = document.forms.form;
 const setData=(ev)=>{
     let elem1 = form.elements.FIO.value;
     const data = {
@@ -610,44 +571,24 @@ const setData=(ev)=>{
     };
     localStorage.setItem(`${elem1}`, JSON.stringify(data));
     let newDiv=document.createElement('div');
+    let ar=localStorage.getItem(elem1);
     newDiv.innerHTML=(`
-  <p>Name: ${data.FIO} </p>
+  <p>Name: ${JSON.parse(ar).FIO} </p>
   `);
     let btn = document.createElement('button');
     btn.addEventListener('click', function () {
         localStorage.removeItem(elem1);
         newDiv.remove();
         btn.remove();
-
     });
     document.body.appendChild(newDiv);
     document.body.appendChild(btn);
-    }
-
-/*
-let form = document.forms.form;
-let data = [];
-const setData=(ev)=> {
-    let elem1 = form.elements.FIO.value;
-    data.push(elem1)
-    localStorage.setItem(`elem`, JSON.stringify(data));
-    let newDiv = document.createElement('div');
-    newDiv.innerHTML = (`
-  <p>Name: ${elem1} </p>
-  `);
-    let btn = document.createElement('button');
-    btn.addEventListener('click', function () {
-        newDiv.remove();
-        btn.remove();
-
-    });
-    document.body.appendChild(newDiv);
-    document.body.appendChild(btn);
-}
-let a=JSON.parse(localStorage.getItem("elem"));
-console.log(a)
-for(let i of a){
-    let v=document.createElement("div");
-    document.body.append(v);
-    v.innerText=i;
 }*/
+
+fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    .then((value)=>{
+        return value.json()
+    })
+    .then((i)=>{
+        console.log(i)
+    })
