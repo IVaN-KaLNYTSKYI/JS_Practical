@@ -575,6 +575,7 @@ fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
 */
 
 
+/*
 let form = document.forms.form;
 const setData=(ev)=>{
     let elem1 = form.elements.FIO.value;
@@ -595,4 +596,37 @@ const setData=(ev)=>{
     });
     document.body.appendChild(newDiv);
     document.body.appendChild(btn);
+}*/
+
+const wrap = document.createElement('div')
+document.body.appendChild(wrap)
+const showUsers = () => {
+    wrap.innerHTML = ''
+    const users = JSON.parse(localStorage.getItem('users')) || []
+    users.forEach(user => {
+        const userDiv = document.createElement('div')
+        userDiv.innerText = `Name: ${JSON.stringify(user)}`
+        const button = document.createElement('button')
+        button.onclick = () => {
+            userDiv.remove()
+            button.remove()
+            const index = users.indexOf(user)
+            users.splice(index, 1)
+            localStorage.setItem('users', JSON.stringify(users))
+        }
+        button.innerText = 'del'
+        userDiv.appendChild(button)
+        wrap.appendChild(userDiv)
+    })
+}
+showUsers()
+let form = document.forms.form
+const setData = (ev) => {
+    let elem1 = form.elements.FIO.value
+    const data = {
+        FIO: elem1
+    }
+    const users = JSON.parse(localStorage.getItem('users')) || []
+    localStorage.setItem('users', JSON.stringify([...users, data]))
+    showUsers()
 }
