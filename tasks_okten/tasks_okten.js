@@ -560,10 +560,22 @@ function findShort(s){
     }
     console.log( `"${min}"`);
 }
-findShort("lox ivan ba");*!/
+findShort("уу ivan уцу");*!/
 */
 
-/*let form = document.forms.form;
+
+/*
+fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    .then((value)=>{
+        return value.json()
+    })
+    .then((i)=>{
+        console.log(i)
+    })
+*/
+
+
+let form = document.forms.form;
 const setData=(ev)=>{
     let elem1 = form.elements.FIO.value;
     const data = {
@@ -583,12 +595,4 @@ const setData=(ev)=>{
     });
     document.body.appendChild(newDiv);
     document.body.appendChild(btn);
-}*/
-
-fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
-    .then((value)=>{
-        return value.json()
-    })
-    .then((i)=>{
-        console.log(i)
-    })
+}
