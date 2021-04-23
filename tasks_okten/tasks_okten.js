@@ -1,23 +1,22 @@
 /*                                                        завдання від Віті                                                           */
 
-/*
-/!*Вирівняти багаторівневий масив в однорівневий
+/*/!*Вирівняти багаторівневий масив в однорівневий
     [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
 flat використовувати заборонено.*!/
-let a=[];
+/!*let a=[];*!/      //другий варік
 function func(arr) {
-     /!*  let a=[];*!/
-        for (let elem of arr) {
-            if (Array.isArray(elem)) {
-                func(elem);
-            } else {
-                a.push(elem)
-            }
+    const a=[];
+    for (let elem of arr) {
+        if ( typeof elem==='object') {
+           a.push(...func(elem));
+       /!*     func(elem);*!/    //другий варік
         }
+        else a.push(elem)
+    }
     return a
 }
-console.log(func([1, 3, [/!*'Hello', 'Wordd',*!/ [9, 6, 1]] /!*['oops']*!/, 9]));
-*/
+
+console.log(func([1,3, ['Hello','Wordd', [9,6,1]], ['oops'], 9]))*/
 
 /*Точная степень двойки
 Дано натуральное число N.
@@ -39,9 +38,7 @@ const stepen = (number) => {
 }
 console.log(stepen(32));*/
 
-
-/*
-/!*
+/*/!*
 Разложить число по разрядам и вывести в таком виде:
     300000 + 20000 + 1000 + 500 + 80 + 7 = 321587*!/
 
@@ -61,7 +58,16 @@ let numbers=(namber) => {
  return arrOne.join('+');
 }
 console.log(numbers(19532));
-*/
+/!*        ВАРІАНТ ДВА *!/
+let numbers=(namber) => {
+    return namber.toString()
+        .split("")
+        .reverse()
+        .map((value, index)=>value*10**index)
+        .reverse()
+        .join("+")+`= ${namber}`;
+}
+console.log(numbers(19532));*/
 
 /*
 /!*
@@ -598,6 +604,7 @@ const setData=(ev)=>{
     document.body.appendChild(btn);
 }*/
 
+/*
 const wrap = document.createElement('div')
 document.body.appendChild(wrap)
 const showUsers = () => {
@@ -630,3 +637,68 @@ const setData = (ev) => {
     localStorage.setItem('users', JSON.stringify([...users, data]))
     showUsers()
 }
+*/
+
+
+/*
+/!*                          РЕКУРСИЯ                                    *!/
+///ВАВ
+function ecr(arry,index=0,obj={}){
+if(index<arry.length){
+obj[index]=arry[index];
+return ecr(arry,++index,obj)
+}
+return obj
+}
+let  arr=["ivan","masha","andrii"];
+console.log(ecr(arr));*/
+
+
+
+
+/*
+/!*                          КОПІЯ   ОБЄКТА                         *!/
+//ВАВ
+let user={
+    name:"ivan",
+    surname:"kalnytskyi",
+    age:19,
+    skil:{
+        dev:"dsdd"
+    }
+}
+console.log(user);
+/!*
+let userI=user;
+userI.age=20;          //мотує
+console.log(user)
+console.log(userI);
+*!/
+/!*let userA=JSON.parse(JSON.stringify(user));
+userA.age=23;
+userA.skil.dev="dsdsdfdfdd"                                //не мотує взагалі
+console.log(user);
+console.log(userA);*!/
+
+
+/!*
+let userB=Object.create(user);
+userB.age=34;                      //не мотує тільки першу вложенмсть
+console.log(user);
+console.log(userB);*!/
+
+/!*
+let userT={...user};
+userT.age=2323;
+userT.skil.dev="dsdsdsdf"      //не мотує тільки першу вложенмсть
+console.log(user);
+console.log(userT)*!/
+
+/!*
+let userT=Object.assign({},user);
+userT.age=2323;
+userT.skil.dev="dsdsdsdf";      //не мотує тільки першу вложенмсть
+console.log(user);
+console.log(userT);*!/
+*/
+
