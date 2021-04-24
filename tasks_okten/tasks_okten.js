@@ -703,3 +703,44 @@ console.log(userT);*!/
 */
 
 /*                         promise       */
+/*
+const p1 = function () {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('p1')
+    }, 3000)
+  })
+}
+
+const p2 = function () {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('p2')
+    }, 1000)
+  })
+}
+
+const p3 = function () {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject('p3')
+    }, 100)
+  })
+}
+
+Promise.all([p1(), p2(), p3()])
+  .then(value => {
+    console.log(value);
+  })
+  .catch(e => {
+    console.log(e);
+  })
+
+Promise.allSettled([p1(), p2(), p3()])
+  .then(value => {
+    console.log('RESOLVE');
+    console.log(value);
+  })
+  .catch(e => {
+    console.log(e);
+  })*/
