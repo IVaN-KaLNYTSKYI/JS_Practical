@@ -702,3 +702,4 @@ console.log(user);
 console.log(userT);*!/
 */
 
+/*                         promise       */
